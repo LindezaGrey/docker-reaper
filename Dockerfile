@@ -1,5 +1,6 @@
 FROM python:3.7.0-alpine3.8
-COPY . /app
 WORKDIR /app
 RUN pip install docker
-CMD python ./Reaper.py
+COPY Reaper.py /app
+CMD ["python","-u","Reaper.py"]
+LABEL maintainer="BetrUG"
