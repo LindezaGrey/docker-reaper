@@ -20,4 +20,6 @@ while True:
                                 for mount in [client.volumes.get(volume['Name']) for volume in container.attrs['Mounts']]:
                                         mount.remove()
                                         print("removed volume:",mount)
+        # remove orphaned networks
+        client.networks.prune()
         time.sleep(60)
